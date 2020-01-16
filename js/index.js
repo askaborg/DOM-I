@@ -35,8 +35,46 @@ const siteContent = {
   "footer": {
     "copyright" : "Copyright Great Idea! 2018"
   },
-};
+}
 
 // Example: Update the img src for the logo
-let logo = document.getElementById("logo-img");
-logo.setAttribute('src', siteContent["nav"]["img-src"])
+let logoImg = document.getElementById("logo-img")
+logoImg.setAttribute('src', siteContent["nav"]["img-src"])
+
+let ctaImg = document.getElementById("cta-img")
+ctaImg.setAttribute("src", siteContent["cta"]["img-src"])
+
+let middleImg = document.getElementById("middle-img")
+middleImg.setAttribute("src", siteContent["main-content"]["middle-img-src"])
+
+let navLinks = document.getElementsByTagName("a")
+let h1Button = document.querySelectorAll("h1, button")
+let h4P = document.querySelectorAll("h4, p")
+const navText = Object.values(siteContent.nav)
+const h1ButtonText = Object.values(siteContent.cta)
+const h4Ptext = Object.values(siteContent["main-content"])
+const contactText = Object.values(siteContent.contact)
+
+for (let i = 0; i < navLinks.length; i++) {
+  navLinks[i].textContent = navText[i]
+}
+
+for (let i = 0; i < h1Button.length; i++) {
+  h1Button[i].textContent = h1ButtonText[i]
+}
+
+for ( let i = 0; i < 10; i++){
+  if ( i < 4) {
+    h4P[i].textContent = h4Ptext[i]
+  }
+  else {
+    h4P[i].textContent = h4Ptext[i+1]
+  }
+}
+
+for ( let i = 0; i < h4P.length-1; i++) {
+    h4P[i+10].textContent = contactText[i]
+  }
+
+h4P[14].textContent = siteContent.footer.copyright
+
