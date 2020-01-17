@@ -72,9 +72,23 @@ for ( let i = 0; i < 10; i++){
   }
 }
 
-for ( let i = 0; i < h4P.length-1; i++) {
-    h4P[i+10].textContent = contactText[i]
-  }
-
+h4P[10].textContent = contactText[0]
+h4P[11].textContent = contactText[1]
+h4P[12].textContent = contactText[2]
+h4P[13].textContent = contactText[3]
 h4P[14].textContent = siteContent.footer.copyright
+
+Array.from(navLinks).forEach( element => {
+  element.style.color = "green"
+})
+
+const fifthElement = document.createElement("a")
+fifthElement.textContent = "Jobs"
+const sixElement = document.createElement("a")
+sixElement.textContent = "Blog"
+
+
+const navElement = document.querySelector("nav")
+navElement.append(fifthElement)
+navElement.prepend(sixElement)
 
